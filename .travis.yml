@@ -1,3 +1,6 @@
+env:
+  global:
+    - COMMIT=${TRAVIS_COMMIT::8}
 script:
 - echo "$DOCKERHUB_PASSWORD" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
 - export REPO=soerface/scigen
@@ -7,4 +10,3 @@ script:
 - docker tag $REPO:$COMMIT $REPO:$TAG
 - docker tag $REPO:$COMMIT $REPO:travis-$TRAVIS_BUILD_NUMBER
 - docker push $REPO
-COMMIT: "${TRAVIS_COMMIT::8}"
