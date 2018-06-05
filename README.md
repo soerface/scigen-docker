@@ -1,4 +1,4 @@
-![Build status](https://travis-ci.org/soerface/scigen-docker.svg?branch=master)
+[![Build status](https://travis-ci.org/soerface/scigen-docker.svg?branch=master)](https://travis-ci.org/soerface/scigen-docker/)
 
 # SCIGen
 
