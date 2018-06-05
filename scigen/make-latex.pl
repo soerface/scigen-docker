@@ -238,19 +238,16 @@ if( !defined $options{"savedir"} ) {
 	and die( "Couldn't latex nothing." );
 
     if( defined $options{"file"} ) {
-	my $f = $options{"file"};
-	if( defined $options{"talk"} ) {
-	    system( "ps2pdf $ps_file $pdf_file; cp $pdf_file $f" ) 
-		and die( "Couldn't ps2pdf/cp $pdf_file" );
-	} else {
-	    system( "cp $ps_file $f" ) and die( "Couldn't cp to $f" );
-	}
+        my $f = $options{"file"};
+        system( "ps2pdf $ps_file $pdf_file; cp $pdf_file $f" ) 
+        and die( "Couldn't cp to $f" );
     } elsif( defined $options{"talk"} ) {
 	system( "ps2pdf $ps_file $pdf_file; acroread $pdf_file" ) 
 	    and die( "Couldn't ps2pdf/acroread $ps_file" );
     } else {
 	system( "gv $ps_file" ) and die( "Couldn't gv $ps_file" );
     }
+    #system( "cp $tmp_dir/$pdf_file /opt/scigen/out/" ) and die ( "Couldn't copy resulting pdf") ;
 
 }
 
@@ -272,15 +269,16 @@ if( defined $options{"tar"} or defined $options{"savedir"} ) {
 
     if( defined $options{"tar"} ) {
 	system( "cd $tartmp; tar -czf $$.tgz $all_files; cd -; " . 
-		"cp $tartmp/$$.tgz $f; rm -rf $tartmp" ) and 
+		"cp $tartmp/$$.tgz $f" ) and 
 		    die( "Couldn't tar to $f" );
     } else {
 	# saving everything untarred
 	my $dir = $options{"savedir"};
 	# WARNING: we delete this directory if it exists
-	if( -d $dir ) {
-	    system( "rm -rf $dir" ) and die( "Couldn't rm existing $dir" );
-	}
+    # GREAT, WARNING IN THE SOURCECODE. THANKS FOR KILLING MY WHOLE REPOSITORY
+    # well played... # if( -d $dir ) {
+	# well played... #     system( "rm -rf $dir" ) and die( "Couldn't rm existing $dir" );
+	# well played... # }
 	system( "mv $tartmp $dir" ) and die( "Couldn't move $tartmp to $dir" );
     }
 
@@ -292,7 +290,6 @@ if( defined $options{"tar"} or defined $options{"savedir"} ) {
 system( "rm $tmp_pre*" ) and die( "Couldn't rm" );
 unlink( @figures );
 unlink( "$bib_file" );
-system( "rm -f $tmp_dir/dia*.tmp; rmdir $tmp_dir" );
 
 sub get_system_name {
 
