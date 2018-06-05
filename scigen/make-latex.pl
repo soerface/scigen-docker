@@ -247,7 +247,6 @@ if( !defined $options{"savedir"} ) {
     } else {
 	system( "gv $ps_file" ) and die( "Couldn't gv $ps_file" );
     }
-    #system( "cp $tmp_dir/$pdf_file /opt/scigen/out/" ) and die ( "Couldn't copy resulting pdf") ;
 
 }
 

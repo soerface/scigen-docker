@@ -1,3 +1,3 @@
 
 all:
-	docker build . -t soerenwegener/scigen
+	docker build . -t soerface/scigen
