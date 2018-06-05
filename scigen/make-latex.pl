@@ -47,11 +47,8 @@ $0 [options]
     --help                    Display this help message
     --author <quoted_name>    An author of the paper (can be specified 
                               multiple times)
-    --seed <seed>             Seed the prng with this
-    --file <file>             Save the postscript in this file
+    --seed <seed>             Seed the prng with this. Must be a number.
     --tar  <file>             Tar all the files up
-    --savedir <dir>           Save the files in a directory; do not latex 
-                              or dvips.  Must specify full path
     --remote                  Use a daemon to resolve symbols
     --talk                    Make a talk, instead of a paper
     --title <title>           Set the title (useful for talks)
