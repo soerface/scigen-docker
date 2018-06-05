@@ -283,7 +283,7 @@ if( defined $options{"tar"} or defined $options{"savedir"} ) {
 }
 
 
-system( "rm $tmp_pre*" ) and die( "Couldn't rm" );
+# system( "rm $tmp_pre*" ) and die( "Couldn't rm" );
 unlink( @figures );
 unlink( "$bib_file" );
 
