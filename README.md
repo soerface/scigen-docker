@@ -1,10 +1,10 @@
-[![Build status](https://travis-ci.org/soerface/scigen-docker.svg?branch=master)](https://travis-ci.org/soerface/scigen-docker/)
-
 # SCIGen
 
 This repository contains the sourcecode from https://github.com/strib/scigen.
 It extends the original work by putting everything inside docker, making scigen
 accessible for everyone.
+
+Image available at https://hub.docker.com/r/soerface/scigen/
 
 ## Usage
 
