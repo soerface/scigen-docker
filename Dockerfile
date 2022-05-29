@@ -9,4 +9,4 @@ COPY scigen /usr/src/scigen
 
 WORKDIR /usr/src/scigen
 
-CMD ["perl", "./make-latex.pl", "--file", "/opt/scigen/out/paper.pdf"]
+ENTRYPOINT ["perl", "./make-latex.pl", "--file", "/opt/scigen/out/paper.pdf"]
