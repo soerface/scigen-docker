@@ -1,9 +1,12 @@
-FROM perl:5.10
+FROM perl:5.32-slim-buster
 
-RUN apt-get update
-RUN apt-get install -y gnuplot texlive inkscape
+RUN apt-get update && apt-get install -y \
+    gnuplot texlive inkscape \
+    && rm -rf /var/lib/apt/lists/* && \
+    mkdir -p /opt/scigen/out/
 
 COPY scigen /usr/src/scigen
+
 WORKDIR /usr/src/scigen
-RUN mkdir -p /opt/scigen/out/
-ENTRYPOINT ["perl", "-I.", "./make-latex.pl", "--file", "/opt/scigen/out/paper.pdf"]
+
+CMD ["perl", "./make-latex.pl", "--file", "/opt/scigen/out/paper.pdf"]
